@@ -1,0 +1,18 @@
+#navbar {
+    margin-top: 0rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    background-color: rgb(253, 253, 179);
+    padding-bottom: 0.5rem;
+    border: 0.25px solid black;
+}
+
+.nav__item {
+    list-style: none;
+}
+
+.nav__link {
+    color: blue;
+    font-size: 2rem;
+}

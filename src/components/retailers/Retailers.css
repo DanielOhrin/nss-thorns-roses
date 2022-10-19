@@ -1,0 +1,50 @@
+.retailer {
+    display: flex;
+    flex-flow: row wrap;
+    width: 50%;
+    border: 1px solid black;
+    margin-bottom: 1.25rem;
+}
+
+.retailer > h3 {
+    text-align: center;
+    width: 100%;
+}
+
+.retailer-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#parent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.info-child > ul {
+    margin-top: 0rem;
+}
+
+.info-child > h4 {
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    margin-bottom: 0rem;
+}
+
+.info-child {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 50%;
+    align-self: flex-start;
+}

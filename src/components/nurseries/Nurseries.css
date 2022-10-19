@@ -1,0 +1,47 @@
+.nursery {
+    display: flex;
+    flex-flow: row wrap;
+    width: 50%;
+    border: 1px solid black;
+    margin-bottom: 1.25rem;
+}
+
+.nursery > h3 {
+    text-align: center;
+    width: 100%;
+}
+
+.nursery-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#parent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.info-child > ul {
+    margin-top: -1rem;
+}
+
+.info-child > h4 {
+    width: 100%;
+    text-align: center;
+}
+
+.info-child {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-self: flex-start;
+}
