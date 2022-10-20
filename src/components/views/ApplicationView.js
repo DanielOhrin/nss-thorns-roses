@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { DistributorList } from "./distributors/DistributorList"
-import { NurseryList } from "./nurseries/NurseryList"
-import { RetailerList } from "./retailers/RetailerList"
+import { DistributorList } from "../distributors/DistributorList"
+import { NurseryList } from "../nurseries/NurseryList"
+import { RetailerList } from "../retailers/RetailerList"
 
 export const ApplicationView = () => {
     return <Routes>

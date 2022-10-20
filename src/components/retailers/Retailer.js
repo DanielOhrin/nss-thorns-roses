@@ -35,18 +35,54 @@ export const Retailer = ({ retailer, distributor }) => {
                     // Set the state to contain the prices
                     setNurseryFlowers(data)
                 })
-
-
     }, [nurseryDistributors])
 
     // Function that calculates markup to reduce clutter in the JSX
     const calculateMarkup = (flower) => {
         const basePrice = nurseryFlowers.find(nF => nF.flowerId === flower.id).price
-       
+
         let total = basePrice + (basePrice * (distributor.markup / 100))
 
         return total + (total * (retailer.markup / 100))
     }
+
+    // Function for adding items to cart
+    const addToCart = (event) => {
+        fetch(`http://localhost:8088/carts?userId=${JSON.parse(localStorage.getItem("thorns_user")).id}&flowerId=${parseInt(event.target.id)}&retailerId=${retailer.id}`)
+            .then(res => res.json())
+            .then(res => {
+                if (!res.length > 0) {
+                    // Do a POST
+                    fetch(`http://localhost:8088/carts`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            customerId: JSON.parse(localStorage.getItem("thorns_user")).id,
+                            retailerId: retailer.id,
+                            flowerId: parseInt(event.target.id),
+                            amount: 1
+                        })
+                    })
+                } else {
+                    // Do a PUT
+                    fetch(`http://localhost:8088/carts/${res[0].id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            customerId: res[0].customerId,
+                            retailerId: res[0].retailerId,
+                            flowerId: res[0].flowerId,
+                            amount: res[0].amount + 1
+                        })
+                    })
+                }
+            })
+    }
+
     return (
         <section className="retailer">
             <h3>{retailer.businessName}</h3>
@@ -58,7 +94,7 @@ export const Retailer = ({ retailer, distributor }) => {
                             flowers.map(flower => {
                                 return (
                                     <li key={`${retailer.id}--${flower.id}`}>
-                                        ${calculateMarkup(flower).toFixed(2)} {flower.species} | {flower.color}
+                                        ${calculateMarkup(flower).toFixed(2)} {flower.species} | {flower.color} <button onClick={addToCart} id={`${flower.id}`} className="purchase-btn">Add 1 to Cart</button>
                                     </li>
                                 )
                             })

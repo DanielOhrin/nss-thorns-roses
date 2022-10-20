@@ -26,3 +26,13 @@ export const getAllRetailers = (params) => {
     return fetch(`http://localhost:8088/retailers${params ? params : "/"}`)
     .then(res => res.json())
 }
+
+export const createNewCustomer = (customerObj) => {
+    return fetch(`http://localhost:8088/customers`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(customerObj)
+    })
+}

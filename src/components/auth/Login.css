@@ -1,0 +1,36 @@
+#login-component, #register-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%; 
+}
+
+fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    border: none;
+}
+
+#login-btn, #save-btn {
+    float: right;
+    width: fit-content;
+    margin-right: 0.75rem;
+}
+
+#register-link, #login-link {
+    margin-left: 1.25rem;
+}
+
+#login-link{
+    margin-right: 1rem;
+}    
+
+#save-btn {
+    width: fit-content;
+    align-self: center;
+}
