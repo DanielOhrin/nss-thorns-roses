@@ -13,6 +13,9 @@ export const Nav = () => {
             <li className="nav__item">
                 <Link className="nav__link" to="/retailers">Retailers</Link>
             </li>
+            <li className="nav__item">
+                <Link className="nav__link" to={`/cart/${JSON.parse(localStorage.getItem("thorns_user")).id}`}>My Cart</Link>
+            </li>
         </ul>
     )
 }
