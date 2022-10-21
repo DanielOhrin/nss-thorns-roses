@@ -4,7 +4,7 @@ import { DistributorList } from "../distributors/DistributorList"
 import { NurseryList } from "../nurseries/NurseryList"
 import { RetailerList } from "../retailers/RetailerList"
 
-export const ApplicationView = () => {
+export const ApplicationView = ({ updateCartLength, cartLength }) => {
     return <Routes>
         <Route path="/" element={
             <>
@@ -16,7 +16,7 @@ export const ApplicationView = () => {
         }>
             <Route path="nurseries" element={<NurseryList />} />
             <Route path="distributors" element={<DistributorList />} />
-            <Route path="retailers" element={<RetailerList />} />
+            <Route path="retailers" element={<RetailerList cartLength={cartLength} updateCartLength={updateCartLength} />} />
             <Route path="cart/:customerId" element={<MyCart />} />
         </Route>
     </Routes>

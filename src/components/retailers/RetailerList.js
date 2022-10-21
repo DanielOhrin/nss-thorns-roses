@@ -3,7 +3,7 @@ import { getAllRetailers } from "../ApiManager"
 import { Retailer } from "./Retailer"
 import "./Retailers.css"
 
-export const RetailerList = () => {
+export const RetailerList = ({updateCartLength, cartLength}) => {
     const [retailers, setRetailers] = useState([])
 
     useEffect(() => {
@@ -21,7 +21,9 @@ export const RetailerList = () => {
                 {
                     retailers.map(retailer => <Retailer key={`retailer--${retailer.id}`}
                         retailer={retailer}
-                        distributor={retailer.distributor} />)
+                        distributor={retailer.distributor} 
+                        updateCartLength={updateCartLength}
+                        cartLength={cartLength} />)
                 }
         </article>
     )

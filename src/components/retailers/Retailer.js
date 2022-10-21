@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getNurseryDistributors, getNurseryFlowers } from "../ApiManager"
 
-export const Retailer = ({ retailer, distributor }) => {
+export const Retailer = ({ retailer, distributor, updateCartLength, cartLength }) => {
     const [nurseryDistributors, setNurseryDistributors] = useState([]),
         [nurseryFlowers, setNurseryFlowers] = useState([]),
         [flowers, setFlowers] = useState([])
@@ -81,6 +81,7 @@ export const Retailer = ({ retailer, distributor }) => {
                     })
                 }
             })
+            updateCartLength(cartLength + 1)
     }
 
     return (
