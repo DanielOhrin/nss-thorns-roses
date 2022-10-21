@@ -1,0 +1,22 @@
+#cart-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#cart-table td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 5px;
+}
+
+#cart-body > tr > td:nth-child(2), #cart-body > tr > td:nth-child(3) {
+    text-align: right;
+}
+
+#cart-article {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
